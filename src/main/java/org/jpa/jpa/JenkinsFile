@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/votre-utilisateur/votre-projet.git'
+                git url: 'https://github.com/GJislaine/jpaTP.git'
             }
         }
         stage('Build') {
