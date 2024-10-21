@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/votre-utilisateur/votre-projet.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('Secret Scanning') {
+            steps {
+                // Intégrer GitSecrets, TruffleHog, etc.
+            }
+        }
+        stage('SCA') {
+            steps {
+                // Intégrer OWASP Dependency-Check
+            }
+        }
+        stage('SAST') {
+            steps {
+                // Intégrer SonarQube
+            }
+        }
+        stage('DAST') {
+            steps {
+                // Intégrer OWASP ZAP
+            }
+        }
+        stage('Deploy to Kubernetes') {
+            steps {
+                // Déployer sur Kubernetes
+            }
+        }
+    }
+    post {
+        always {
+            // Actions post-build (ex: notifications)
+        }
+    }
+}
